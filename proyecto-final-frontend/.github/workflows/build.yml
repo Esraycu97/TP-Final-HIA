@@ -20,4 +20,9 @@ jobs:
 
       - name: Update container
         run: |
-          docker-compose up -d --build web
+          docker-compose build
+          docker-compose up -d web
+
+      - name: Check container logs
+        run: |
+          docker-compose logs -f web
