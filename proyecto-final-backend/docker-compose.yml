@@ -34,6 +34,7 @@ services:
       - "8090:80"
     networks:
       - tpfinal
+    restart: always
     dns:
       - 8.8.8.8
       - 8.8.4.4
@@ -44,3 +45,6 @@ services:
     networks:
       - tpfinal
 
+  on:
+  startup:
+    - command: docker-compose up -d --no-deps --build web
