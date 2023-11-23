@@ -20,4 +20,4 @@ jobs:
 
       - name: Update container
         run: |
-          docker-compose up -d --build angular
+          docker-compose up -d --build web
