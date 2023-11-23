@@ -1,0 +1,45 @@
+version: '3'
+
+networks:
+  tpfinal:
+    driver: bridge
+
+services:
+
+  nodejs:
+    container_name: nodejs
+    restart: always
+    build: .
+    ports:
+      - "3000:3000"
+    networks:
+      - tpfinal
+    links:
+      - mongo
+      - web
+
+  mongo:
+    container_name: mongobd
+    image: mongo
+    ports:
+      - "27018:27017"
+    networks:
+      - tpfinal
+
+  web:
+    container_name: web
+    image: angulartest2
+    ports:
+      - "8090:80"
+    networks:
+      - tpfinal
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+  dns:
+    container_name: dnsmasq
+    image: andyshinn/dnsmasq
+    restart: always
+    networks:
+      - tpfinal
+
