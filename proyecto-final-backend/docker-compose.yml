@@ -28,7 +28,7 @@ services:
 
   web:
     container_name: web
-    image: angulartest2
+    image: angularfinal
     ports:
       - "8090:80"
     networks:

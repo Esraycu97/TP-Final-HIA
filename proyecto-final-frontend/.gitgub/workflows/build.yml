@@ -1,0 +1,23 @@
+name: Build and deploy Angular application
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone project
+        uses: actions/checkout@v2
+        with:
+          ref: TP-Final-HIA
+
+      - name: Build application
+        run: |
+          ng build --prod
+
+      - name: Update container
+        run: |
+          docker-compose up -d --build angular
