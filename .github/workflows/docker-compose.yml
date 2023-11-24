@@ -15,3 +15,7 @@ jobs:
       - name: Build Docker image
         run: |
           docker-compose -f proyecto-final-backend/web/docker-compose.yml build web
+
+      - name: Up Docker container
+        run: |
+          docker-compose -f proyecto-final-backend/web/docker-compose.yml up -d
