@@ -1,0 +1,28 @@
+name: Update Container
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update-container:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Build and run container
+        run: |
+          echo "Obteniendo el nombre del repositorio de Git"
+          repo_name=$(git remote https://github.com/Esraycu97/TP-Final-HIA.git origin)
+
+          echo "Clonando el repositorio de Git"
+          git clone $repo_name
+
+          echo "Construyendo el contenedor a partir del código del repositorio"
+          cd $repo_name
+          docker build -t web .
+
+          echo "Iniciando el contenedor"
+          docker run -d web
