@@ -20,9 +20,7 @@ jobs:
 
       - name: Deploy web container
         run: |
-          if [ "$?" -ne 0 ]; then
-            docker-compose up -d --no-deps --build web
-          fi
+          docker-compose up -d --no-deps --build web
 
       - name: Check container logs
         run: |
