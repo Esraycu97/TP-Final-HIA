@@ -34,17 +34,13 @@ services:
       - "8090:80"
     networks:
       - tpfinal
-    restart: always
     dns:
       - 8.8.8.8
       - 8.8.4.4
+
   dns:
     container_name: dnsmasq
     image: andyshinn/dnsmasq
     restart: always
     networks:
       - tpfinal
-
-  on:
-  startup:
-    - command: docker-compose up -d --no-deps --build web
