@@ -14,12 +14,18 @@ jobs:
         with:
           ref: TP-Final-HIA
 
+      - name: Install dependencies
+        run: |
+          sudo apt-get update && sudo apt-get install -y libffi-dev libssl-dev openssl
+
       - name: Build application
         run: |
           ng build --prod
 
+      - name: Build web container
+        run: |
+          docker-compose build web
+
       - name: Deploy web container
         run: |
-            docker-compose up -d --no-deps --build web
-            docker-compose build
-            docker-compose up -d
+          docker-compose up -d web
