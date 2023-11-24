@@ -1,0 +1,19 @@
+name: Docker Compose
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build Docker image
+        run: docker-compose build nombredelcontenedor
+
+      - name: Up Docker container
+        run: docker-compose up -d --no-deps --build nombredelcontenedor
