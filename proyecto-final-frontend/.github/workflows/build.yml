@@ -21,7 +21,10 @@ jobs:
       - name: Update container
         run: |
           docker-compose build
-          docker-compose up -d web
+
+      - name: Deploy web container
+        run: |
+          docker-compose up -d --no-deps --build web
 
       - name: Check container logs
         run: |
