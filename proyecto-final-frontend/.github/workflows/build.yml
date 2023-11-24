@@ -18,13 +18,15 @@ jobs:
         run: |
           ng build --prod
 
-      - name: Update container
+      - name: Check for changes
         run: |
-          docker-compose build
+          docker-compose config | diff -u docker-compose.orig
 
       - name: Deploy web container
         run: |
-          docker-compose up -d --no-deps --build web
+          if [ "$?" -ne 0 ]; then
+            docker-compose up -d --no-deps --build web
+          fi
 
       - name: Check container logs
         run: |
