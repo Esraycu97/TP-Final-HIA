@@ -1,4 +1,4 @@
-name: Update Container
+name: Actualizar contenedor
 
 on:
   push:
@@ -9,13 +9,13 @@ jobs:
   update-container:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out code
+      - name: Comprobar código
         uses: actions/checkout@v2
 
-      - name: Build and run container
+      - name: Construir y ejecutar contenedor
         run: |
           echo "Obteniendo el nombre del repositorio de Git"
-          repo_name=$(git remote https://github.com/Esraycu97/TP-Final-HIA.git origin)
+          repo_name=$(git remote https://github.com/Esraycu97/TP-Final-HIA.git main)
 
           echo "Clonando el repositorio de Git"
           git clone $repo_name
