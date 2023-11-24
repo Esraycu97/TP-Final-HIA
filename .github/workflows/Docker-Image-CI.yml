@@ -15,4 +15,4 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag web
+      run: docker build . --file Dockerfile --tag ./proyecto-final-backend_web
