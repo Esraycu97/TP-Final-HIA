@@ -18,4 +18,6 @@ jobs:
         password: ${{ secrets.DOCKER_PASS }}
         context: .
         file: Dockerfile
-        repoOwner: alexmamani
+        repoOwner: ${{ secrets.DOCKER_USER }}
+        repository: alexmamani
+        tag: 1.0
