@@ -28,7 +28,7 @@ jobs:
         username: ${{ secrets.DOCKER_USER }}
         password: ${{ secrets.DOCKER_PASS }}
         context: .
-        file: ./proyecto-final-backend/Dockerfile
+        file: /proyecto-final-backend/Dockerfile
         repoOwner: ${{ secrets.DOCKER_USER }}
-        repository: backend
-        tag: 1.0
+        repository: alexmamani
+        tag: backend
