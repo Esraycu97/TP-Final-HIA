@@ -1,28 +1,30 @@
 name: Docker Compose
 
-on: 
+on:
   push:
     branches:
       - main
+
 jobs:
   buid:
     runs-on: ubuntu-latest
+
     steps:
-     - name: chequear proyecto
-       uses: actions/checkout@v4  
+      - name: chequear proyecto
+        uses: actions/checkout@v4
 
-     - name: Build, Tag & Publish Image to DockerHub frontend
-       uses: dinushchathurya/build-tag-push-action@v1.2.1
-       with:
-        username: ${{ secrets.DOCKER_USER }}
-        password: ${{ secrets.DOCKER_PASS }}
-        context: .
-        file: Dockerfile
-        repoOwner: ${{ secrets.DOCKER_USER }}
-        repository: frontend1
-        tag: 1.0
+      - name: Build, Tag & Publish Image to DockerHub Frontend
+        uses: dinushchathurya/build-tag-push-action@v1.2.1
+        with:
+          username: ${{ secrets.DOCKER_USER }}
+          password: ${{ secrets.DOCKER_PASS }}
+          context: .
+          file: Dockerfile
+          repoOwner: ${{ secrets.DOCKER_USER }}
+          repository: frontend1
+          tag: 1.0
 
-     - name: Build, Tag & Publish Image to DockerHub Backend
+      - name: Build, Tag & Publish Image to DockerHub Backend
         uses: dinushchathurya/build-tag-push-action@v1.2.1
         with:
           username: ${{ secrets.DOCKER_USER }}
