@@ -21,8 +21,7 @@ jobs:
           context: .
           file: Dockerfile
           repoOwner: ${{ secrets.DOCKER_USER }}
-          repository: frontend1
-          tag: 2.0
+          repository: frontend
 
       #- name: Build, Tag & Publish Image to DockerHub Backend
       #  uses: dinushchathurya/build-tag-push-action@v1.2.1
