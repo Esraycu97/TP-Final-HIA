@@ -1,21 +1,21 @@
 name: Docker Compose
 
-on:
+on: 
   push:
     branches:
-      - master
-
+      - main
 jobs:
-  build:
+  buid:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v3
+     - name: chequear proyecto
+       uses: actions/checkout@v4  
 
-      - name: Build Docker image
-        run: |
-          docker-compose -f proyecto-final-backend/web/docker-compose.yml build web
-
-      - name: Up Docker container
-        run: |
-          docker-compose -f proyecto-final-backend/web/docker-compose.yml up -d
+     - name: Build, Tag & Publish Image to DockerHub
+       uses: dinushchathurya/build-tag-push-action@v1.2.1
+       with:
+        username: ${{ secrets.DOCKER_USER }}
+        password: ${{ secrets.DOCKER_PASS }}
+        context: .
+        file: Dockerfile
+        repoOwner: alexmamani
