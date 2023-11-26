@@ -28,7 +28,7 @@ services:
 
   web:
     container_name: web
-    image: alexmamani/frontend
+    image: alexmamani/frontend:1
     ports:
       - "8090:80"
     networks:
