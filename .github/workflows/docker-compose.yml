@@ -21,7 +21,7 @@ jobs:
           username: ${{ secrets.DOCKER_USER }}
           password: ${{ secrets.DOCKER_PASS }}
           context: proyecto-final-backend/
-          file: Dockerfile
+          file: proyecto-final-backend/Dockerfile
           repoOwner: ${{ secrets.DOCKER_USER }}
           repository: backend
           tag: 1.0
