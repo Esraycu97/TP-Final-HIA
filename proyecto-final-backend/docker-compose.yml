@@ -9,7 +9,7 @@ services:
   nodejs:
     container_name: nodejs
     restart: always
-    build: .
+    image: alexmamani/backend:1
     ports:
       - "3000:3000"
     networks:
