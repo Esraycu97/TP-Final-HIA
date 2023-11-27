@@ -50,3 +50,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     networks:
       - tpfinal
+    environment:
+      - WATCHTOWER_POLL_INTERVAL=300
+      - WATCHTOWER_MONITOR_ONLY=false
+      - WATCHTOWER_CLEANUP=false
